@@ -9,13 +9,13 @@ import { StarShipsService } from "../../servicios/star-ships.service";
 export class StarShipsComponent implements OnInit {
 
   starships: any[] = [];
-//  shipId = '?';
+  imgURL = 'https://starwars-visualguide.com/assets/img/starships/';
+  imgEXT = '.jpg';
 
   constructor(private _starshipsService: StarShipsService) {
     this._starshipsService.GetStarShips('').subscribe( (data: any) => {
-      console.log('resultats: ' + data.results);
+//      console.log('resultats: ' + data.results);
       this.starships = data.results;
-//      this.shipId = this.getStarshipId();
 
     });
       
@@ -24,16 +24,26 @@ export class StarShipsComponent implements OnInit {
   ngOnInit() {
   }
 
-  getStarshipId(): any {
-/*    var url: string = this.starships[0].url;
-    console.log('url ship: ' + this.starships.url);
-    console.log('id ship: ' + url.split("/").filter(function(item) {
+  // Retornar la ID de la nave solicitada.
+  getStarshipId( sh: any ): string {
+    return sh.url.split("/").filter(function(item) {
       return item !== "";
-  }).slice(-1)[0]);
-    this.shipId = url.split("/").filter(function(item) {
-        return item !== "";
-    }).slice(-1)[0];*/
-}
+  }).slice(-1)[0];
+  }
 
+  // Comprobar si la URL de la imagen de la nave solicitada existe.
+  ImageExists( sh: any ): boolean {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', this.getImageURL( sh ), false);
+    http.send();
+    return http.status != 404;
+
+    return true;
+  }
+
+  // Retornar la URL de la imagen de la nave solicitada.
+  getImageURL( sh: any ){
+    return this.imgURL + this.getStarshipId( sh ) + this.imgEXT;
+  }
 
 }

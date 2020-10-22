@@ -3,9 +3,9 @@
 
 <div class="card-columns">
     <div *ngFor="let ship of starships" class="card">
-        <img src="assets/img/star-wars-no-disponible.jpg" class="card-img-top" alt="...">
+        <img *ngIf="ImageExists( ship )" src="{{ getImageURL( ship ) }}" class="card-img-top" alt="{{ ship.name }}">
+        <img *ngIf="!ImageExists( ship )" src="assets/img/star-wars-no-disponible.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-            <!--            <h5 class="card-title">{{ ship.name }} - {{ shipId }}</h5>-->
             <h5 class="card-title">{{ ship.name }}</h5>
             <p class="card-text">{{ ship.cost_in_credits | currency:'0' }} créditos</p>
             <p class="card-text"><small class="text-muted">Última actualización {{ ship.created | date:'dd MMM y - hh:mm' }}</small></p>
