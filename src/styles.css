@@ -45,19 +45,60 @@ body {
 
 /* Cards */
 
-
-/*.card-columns {
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
-    @include media-breakpoint-only(xl) {
-        column-count: 5;
-    }
-}*/
-
 .card-columns {
     column-count: 2;
     column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
+}
+
+
+/* NavBar */
+
+.navbar-light .navbar-nav>li>a,
+.navbar .navbar-nav>li>a:hover,
+.navbar .navbar-nav>li>a:focus {
+    position: relative;
+    /*    font-weight: bold;*/
+    color: #777;
+}
+
+.navbar .navbar-nav>li>a:before {
+    background-color: rgba(0, 0, 0, .9);
+    content: "";
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar .navbar-nav>li>a:hover:before,
+.navbar-default .navbar-nav>li>a:focus:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.navbar .navbar-nav>li>a.active:before {
+    background-color: rgba(0, 0, 0, .9);
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.navbar .navbar-nav>.open>a {
+    color: #777;
+    /*    font-weight: bold;*/
+    background-color: #FFFFFF;
+}
+
+.navbar .navbar-nav>.open>a:hover,
+.navbar .navbar-nav>.open>a:focus {
+    background-color: #FFFFFF;
 }
