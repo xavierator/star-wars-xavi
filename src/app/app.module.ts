@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { StarShipsComponent } from './components/star-ships/star-ships.component';
 import { AboutComponent } from './components/about/about.component';
+import { StarshipComponent } from './components/starship/starship.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutComponent } from './components/about/about.component';
     NavbarComponent,
     HomeComponent,
     StarShipsComponent,
-    AboutComponent
+    AboutComponent,
+    StarshipComponent
   ],
   imports: [
     BrowserModule,

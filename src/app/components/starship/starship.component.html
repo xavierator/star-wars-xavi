@@ -1,0 +1,23 @@
+<h1 class="animated fadeIn">{{ ship.name }} <small>({{ ship.created | date:'dd MMM y - hh:mm' }})</small></h1>
+<hr>
+<div class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <!--        <img [src]="getImageURL( ship )" class="img-fluid" [alt]="ship.nombre">-->
+        <img *ngIf="ImageExists( ship )" [src]="shipImage" class="img-fluid" [alt]="ship.nombre">
+        <img *ngIf="!ImageExists( ship )" src="assets/img/star-wars-no-disponible.jpg" class="card-img-top" alt="No disponible">
+        <br><br>
+        <a [routerLink]="['/star-ships']" class="btn btn-outline-dark btn-block">Regresar</a>
+
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{ ship.nombre }}</h3>
+        <hr>
+        <p>{{ ship.manufacturer }}</p>
+
+        <div>
+            <img *ngIf="bEmpireShip" class="img-logo" src="assets/img/empire.png" alt="Empire">
+            <img *ngIf="!bEmpireShip" class="img-logo" src="assets/img/rebel.png" alt="Rebel">
+        </div>
+    </div>
+</div>

@@ -5,11 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './components/home/home.component';
 import {AboutComponent} from './components/about/about.component';
 import {StarShipsComponent} from './components/star-ships/star-ships.component';
+import {StarshipComponent} from './components/starship/starship.component';
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'star-ships', component: StarShipsComponent },
+    { path: 'starship', component: StarshipComponent },
     { path: '**', pathMatch:'full', redirectTo: 'star-ships' }
 ];
 
