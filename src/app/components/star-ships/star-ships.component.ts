@@ -26,7 +26,7 @@ export class StarShipsComponent implements OnInit {
 
   // Comprobar si la URL de la imagen de la nave solicitada existe.
   ImageExists( sh: any ): boolean {
-    return this._starshipsService.xImageExists( sh );
+    return this._starshipsService.ImageExists( sh );
   }
 
   // Retornar la URL de la imagen de la nave solicitada.

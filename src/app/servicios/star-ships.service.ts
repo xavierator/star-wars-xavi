@@ -33,7 +33,7 @@ export class StarShipsService {
   }
 
     // Comprobar si la URL de la imagen de la nave solicitada existe.
-  xImageExists( ship: any ): boolean {
+  ImageExists( ship: any ): boolean {
       var http = new XMLHttpRequest();
       http.open('HEAD', this.GetStarShipImageURL( ship ), false);
       http.send();

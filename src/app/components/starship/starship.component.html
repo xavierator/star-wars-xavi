@@ -3,7 +3,7 @@
 <div class="row animated fadeIn fast">
     <div class="col-md-4">
         <!--        <img [src]="getImageURL( ship )" class="img-fluid" [alt]="ship.nombre">-->
-        <img *ngIf="ImageExists( ship )" [src]="shipImage" class="img-fluid" [alt]="ship.nombre">
+        <img *ngIf="ImageExists( ship )" [src]="imgShip" class="img-fluid" [alt]="ship.nombre">
         <img *ngIf="!ImageExists( ship )" src="assets/img/star-wars-no-disponible.jpg" class="card-img-top" alt="No disponible">
         <br><br>
         <a [routerLink]="['/star-ships']" class="btn btn-outline-dark btn-block">Regresar</a>
@@ -11,13 +11,27 @@
     </div>
 
     <div class="col-md-8">
-        <h3>{{ ship.nombre }}</h3>
+        <h3>{{ ship.name }} (clase {{ ship.starship_class }})</h3>
         <hr>
         <p>{{ ship.manufacturer }}</p>
-
+        <p *ngIf="ship.cost_in_credits!='unknown'" class="card-text">{{ ship.cost_in_credits | currency:'CRE ':'symbol-narrow':'.0-0' }}</p>
+        <p *ngIf="ship.cost_in_credits=='unknown'" class="card-text">Precio no disponible</p>
+        <p><b>{{ ship.crew }}</b> tripulante/s - <b>{{ ship.passengers }}</b> pasajero/s</p>
+        <p>Máxima Velocidad Atmosférica <b>{{ ship.max_atmosphering_speed }}</b> </p>
+        <p>Capacidad de carga <b>{{ ship.cargo_capacity }}</b></p>
         <div>
+            <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" src="assets/img/empire.png" alt="Empire logo">
+            <img *ngIf="imgRebelManufacturer!=''" class="img-logo" src="assets/img/rebel.png" alt="Rebel logo">
+
+            <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" [src]="imgEmpireManufacturer" alt="Empire Manufacturer logo">
+            <img *ngIf="imgRebelManufacturer!=''" class="img-logo" [src]="imgRebelManufacturer" alt="Rebel Manufacturer logo">
+
+        </div>
+
+        <!--        <div>
             <img *ngIf="bEmpireShip" class="img-logo" src="assets/img/empire.png" alt="Empire">
             <img *ngIf="!bEmpireShip" class="img-logo" src="assets/img/rebel.png" alt="Rebel">
-        </div>
+        </div>-->
+
     </div>
 </div>
