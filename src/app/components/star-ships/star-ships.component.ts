@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StarShipsService } from "../../servicios/star-ships.service";
 import { Router } from "@angular/router";
+import { AuthService } from 'src/app/servicios/auth.service';
+import { StarShipsService } from "../../servicios/star-ships.service";
 
 @Component({
   selector: 'app-star-ships',
@@ -12,13 +13,17 @@ export class StarShipsComponent implements OnInit {
   starships: any[] = [];
   
   constructor( private _starshipsService: StarShipsService,
-               private StarshipRouter: Router ) {
+               private StarshipRouter: Router,
+               public auth: AuthService ) {
+//    this.starships = JSON.parse(this._starshipsService.GetStarShips(''));
+/*    this.starships = this._starshipsService.GetStarShips('');
+    console.log( 'info received ... ', this.starships );*/
     this._starshipsService.GetStarShips('').subscribe( (data: any) => {
-//      console.log('resultats: ' + data.results);
+        console.log('resultats star-ships: ', data.results);
       this.starships = data.results;
 
     });
-      
+
    }
 
   ngOnInit() {
