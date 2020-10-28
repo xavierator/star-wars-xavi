@@ -1,0 +1,29 @@
+<h1 class="animated fadeIn fast">Buscando ... <small>{{searchText}}</small></h1>
+<hr>
+
+<div *ngIf="aFound.length==0" class="row">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados para "{{searchText}}"
+        </div>
+    </div>
+</div>
+
+<div *ngIf="aFound.length>0" class="card-columns">
+    <div *ngFor="let ship of aFound" class="card animated fadeIn fast">
+        <img *ngIf="ImageExists( ship )" [src]="getImageURL( ship )" class="card-img-top" [alt]="ship.name">
+        <img *ngIf="!ImageExists( ship )" src="assets/img/star-wars-no-disponible.jpg" class="card-img-top" alt="No disponible">
+
+        <div class="card-body animated fadeIn fast">
+            <h5 class="card-title">{{ ship.name }}</h5>
+            <p *ngIf="ship.cost_in_credits!='unknown'" class="card-text">{{ ship.cost_in_credits | currency:'CRE ':'symbol-narrow':'.0-0' }}</p>
+            <p *ngIf="ship.cost_in_credits=='unknown'" class="card-text">Precio no disponible</p>
+            <p class="card-text"><small class="text-muted">Última actualización {{ ship.created | date:'dd MMM y - hh:mm' }}</small></p>
+
+            <button (click)="showStarship(ship)" type="button" class="btn btn-outline-dark btn-block">
+                Más información ...
+            </button>
+
+        </div>
+    </div>
+</div>

@@ -39,7 +39,7 @@ export class StarShipsComponent implements OnInit {
     return this._starshipsService.GetStarShipImageURL( sh );
   }
 
-  // ...
+  // Mostrar ficha de la nave solicitada
   showStarship( sh: any ) {
 //console.log('Show Starship: ' + sh.name);
     this.StarshipRouter.navigate( ['/starship', sh] );
