@@ -1,0 +1,18 @@
+<h1 class="animated fadeIn">Perfil de usuario</h1>
+<hr>
+<div *ngIf="auth.userProfile$ | async as profile" class="row animated fadeIn fast">
+    <div class="col-md-4">
+        <img src="{{profile.picture}}" class="img-fluid" [alt]="profile.nombre">
+
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{ profile.nickname }}</h3>
+        <hr>
+        <p>{{ profile.name }}</p>
+        <p>{{ profile.email }}</p>
+    </div>
+
+    <!--    <code>{{ profile | json}}</code>-->
+
+</div>

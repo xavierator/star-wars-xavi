@@ -6,12 +6,18 @@ import {HomeComponent} from './components/home/home.component';
 import {AboutComponent} from './components/about/about.component';
 import {StarShipsComponent} from './components/star-ships/star-ships.component';
 import {StarshipComponent} from './components/starship/starship.component';
+import {BuscadorComponent} from "./components/buscador/buscador.component";
+import {PerfilComponent} from "./components/perfil/perfil.component";
+import {AuthGuard} from "./servicios/auth.guard";
+
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'star-ships', component: StarShipsComponent },
     { path: 'starship', component: StarshipComponent },
+    { path: 'buscar/:text', component: BuscadorComponent },
+    { path: 'perfil', component: PerfilComponent, canActivate: [ AuthGuard ] },
     { path: '**', pathMatch:'full', redirectTo: 'star-ships' }
 ];
 

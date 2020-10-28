@@ -22,6 +22,11 @@
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['about']">About Store</a>
             </li>
+
+            <li class="nav-item" routerLinkActive="active">
+                <a *ngIf="auth.loggedIn" class="nav-link" [routerLink]="['perfil']">Perfil</a>
+            </li>
+
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
@@ -36,6 +41,7 @@
             <button *ngIf="auth.loggedIn" (click)="auth.logout()" class="btn btn-outline-danger">
                 Log out
             </button>
+
         </span>
 
     </div>

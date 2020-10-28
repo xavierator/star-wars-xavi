@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   buscarShip( text: string ) {
-console.log(Date + ' - ' + 'buscar ... ' + text);
+console.log('buscar ... ' + text);
 //    this._starshipsService.buscarShips( text );
     this.SearchRouter.navigate( ['/buscar', text ] );
 
