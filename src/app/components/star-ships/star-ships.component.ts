@@ -15,16 +15,25 @@ export class StarShipsComponent implements OnInit {
   constructor( private _starshipsService: StarShipsService,
                private StarshipRouter: Router,
                public auth: AuthService ) {
-//    this.starships = JSON.parse(this._starshipsService.GetStarShips(''));
-/*    this.starships = this._starshipsService.GetStarShips('');
-    console.log( 'info received ... ', this.starships );*/
-    this._starshipsService.GetStarShips('').subscribe( (data: any) => {
+
+    this.doListar();
+
+    // Funciona OK sense gestió de caché
+/*    this._starshipsService.GetStarShips('').subscribe( (data: any) => {
         console.log('resultats star-ships: ', data.results);
       this.starships = data.results;
 
-    });
+    });*/
 
    }
+
+  // Lanzar listado.
+  async doListar() {
+//    this.starships = await this._starshipsService.listarStarShips();
+    this.starships = await this._starshipsService.buscarStarShips('');
+    
+  } 
+
 
   ngOnInit() {
   }

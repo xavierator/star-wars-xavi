@@ -25,15 +25,17 @@ export class BuscadorComponent implements OnInit {
 
     })
 console.log('buscando ... ' + this.searchText);
-this.doBuscar( this.searchText );
+    this.doBuscar( this.searchText );
 
   }
 
+  // Lanzar filtro de búsqueda.
   async doBuscar( searchText: string ) {
     this.aFound = await this._starshipsService.buscarStarShips( this.searchText );
-console.log('resultados ... ', this.aFound);
+//console.log('resultados ... ', this.aFound);
 
   }
+
   // Comprobar si la URL de la imagen de la nave solicitada existe.
   ImageExists( sh: any ): boolean {
     return this._starshipsService.ImageExists( sh );
@@ -44,9 +46,9 @@ console.log('resultados ... ', this.aFound);
     return this._starshipsService.GetStarShipImageURL( sh );
   }
 
-  // Mostrar ficha de la nave solicitada
+  // Mostrar ficha de la nave solicitada.
   showStarship( sh: any ) {
         this.StarshipRouter.navigate( ['/starship', sh] );
-      }
+  }
     
 }
