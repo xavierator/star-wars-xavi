@@ -11,6 +11,10 @@ import { StarShipsService } from "../../servicios/star-ships.service";
 export class StarShipsComponent implements OnInit {
 
   starships: any[] = [];
+  public page: number = 1;
+  public totalPages: number;
+  public numStarShips: number;
+  private numResults: number = 4;
   
   constructor( private _starshipsService: StarShipsService,
                private StarshipRouter: Router,
@@ -30,9 +34,33 @@ export class StarShipsComponent implements OnInit {
   // Lanzar listado.
   async doListar() {
 //    this.starships = await this._starshipsService.listarStarShips();
-    this.starships = await this._starshipsService.buscarStarShips('');
-    
-  } 
+//    this.starships = await this._starshipsService.buscarStarShips('');
+
+    this.getStarShipsByPage(this.page);
+
+  }
+
+  async getStarShipsByPage(page: number) {
+    let todos: any[] = [];
+    todos = await this._starshipsService.buscarStarShips('');
+    this.numStarShips = todos.length;
+    this.totalPages = Math.ceil(this.numStarShips / this.numResults);
+
+    this.starships = [];
+    let nStart = ( this.numResults * ( page - 1) );
+    for ( let i = ( this.numResults * ( page - 1) ); 
+          i < nStart + this.numResults && i < todos.length;
+          i++ ) {
+          this.starships.push(todos[ i ]);
+        }
+
+  }
+
+  goToPage(page: number) {
+    this.page = page;
+    this.getStarShipsByPage(page);
+
+  }
 
 
   ngOnInit() {

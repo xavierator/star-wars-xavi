@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Rutes
 import { APP_ROUTING } from './app.routes';
@@ -15,6 +16,9 @@ import { HomeComponent } from './components/home/home.component';
 import { StarShipsComponent } from './components/star-ships/star-ships.component';
 import { AboutComponent } from './components/about/about.component';
 import { StarshipComponent } from './components/starship/starship.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,16 @@ import { StarshipComponent } from './components/starship/starship.component';
     HomeComponent,
     StarShipsComponent,
     AboutComponent,
-    StarshipComponent
+    StarshipComponent,
+    BuscadorComponent,
+    PerfilComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [
