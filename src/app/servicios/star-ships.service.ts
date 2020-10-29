@@ -77,6 +77,8 @@ console.log('resultado/s API: ' + aShips.length + ' leido/s', aShips);
     } */
 
 
+    // Se han optimizado las funciones de listar y buscar en una sola.
+    // Si hay texto a buscar se ejecuta el filtro que para el listado no se dará.
     buscarStarShips( text: string ): Promise<any[]> {
       let aShips: any[] = [];
       let aResultats: any[] = [];
