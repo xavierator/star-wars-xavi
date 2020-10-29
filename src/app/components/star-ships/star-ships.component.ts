@@ -20,7 +20,8 @@ export class StarShipsComponent implements OnInit {
                private StarshipRouter: Router,
                public auth: AuthService ) {
 
-    this.doListar();
+//    this.doListar();
+    this.getStarShipsByPage(this.page);
 
     // Funciona OK sense gestió de caché
 /*    this._starshipsService.GetStarShips('').subscribe( (data: any) => {
@@ -31,15 +32,20 @@ export class StarShipsComponent implements OnInit {
 
    }
 
+
+  ngOnInit() {
+  }
+
+
   // Lanzar listado.
   async doListar() {
 //    this.starships = await this._starshipsService.listarStarShips();
 //    this.starships = await this._starshipsService.buscarStarShips('');
 
-    this.getStarShipsByPage(this.page);
-
   }
 
+
+  // Lanzar paginación del listado.
   async getStarShipsByPage(page: number) {
     let todos: any[] = [];
     todos = await this._starshipsService.buscarStarShips('');
@@ -62,9 +68,6 @@ export class StarShipsComponent implements OnInit {
 
   }
 
-
-  ngOnInit() {
-  }
 
   // Comprobar si la URL de la imagen de la nave solicitada existe.
   ImageExists( sh: any ): boolean {
