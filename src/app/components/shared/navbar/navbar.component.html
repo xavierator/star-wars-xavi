@@ -4,12 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="#">
-        <!--        <img src="assets/img/star-wars-128x16-black.png" width="128" height="16" alt="" loading="lazy">-->
-        <img src="assets/img/corellian-store-127x26.png" width="127" height="26" alt="" loading="lazy">
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse  w-100 order-1 order-md-0 dual-collapse2" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['home']">Home</a>
@@ -29,27 +24,46 @@
 
         </ul>
 
-        <form *ngIf="auth.loggedIn" class="form-inline my-2 my-lg-0">
-            <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control" type="text" placeholder="Buscar nave" (keyup.enter)="buscarShip(buscarTexto.value)" #buscarTexto>
-                <div class="input-group-append">
-                    <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search" (click)="buscarShip(buscarTexto.value)"></i></span>
+    </div>
+
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">
+            <img src="assets/img/corellian-store-127x26.png" width="127" height="26" alt="" loading="lazy">
+        </a>
+
+    </div>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <div class="input-group-append navbar-nav ml-auto">
+            <form *ngIf="auth.loggedIn" class="form-inline my-2 my-lg-0">
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control" type="text" placeholder="Buscar nave" (keyup.enter)="buscarShip(buscarTexto.value)" #buscarTexto>
+                    <div class="input-group-append">
+                        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search" (click)="buscarShip(buscarTexto.value)"></i></span>
+                    </div>
                 </div>
-            </div>
 
-            <!--            <button (click)="buscarShip(buscarTexto.value)" class="btn btn-outline-dark my-2 my-sm-0" type="button">Buscar</button> -->
+            </form>
 
-        </form>
+            <span class="navbar-text">
+<!--                <button *ngIf="!auth.loggedIn" (click)="auth.login()" class="btn btn-outline-success">
+                    Iniciar sesión
+                </button>
+                <button *ngIf="auth.loggedIn" (click)="auth.logout()" class="btn btn-outline-danger">
+                    Cerrar sesión
+                </button> -->
 
-        <span class="navbar-text">
-            <button *ngIf="!auth.loggedIn" (click)="auth.login()" class="btn btn-outline-success">
-                Log in
-            </button>
-            <button *ngIf="auth.loggedIn" (click)="auth.logout()" class="btn btn-outline-danger">
-                Log out
-            </button>
+                <ul class="navbar-nav mr-auto">
+                    <li *ngIf="!auth.loggedIn" class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" (click)="auth.login()">Iniciar sesión</a>
+                    </li>
+                    <li *ngIf="auth.loggedIn" class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" (click)="auth.logout()">Cerrar sesión</a>
+                    </li>
+                </ul>                        
+            </span>
 
-        </span>
+        </div>
 
     </div>
 
