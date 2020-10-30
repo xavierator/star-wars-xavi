@@ -1,7 +1,7 @@
 <nav aria-label="...">
     <ul *ngIf="numStarShips" class="pagination">
         <li *ngIf="page > 1" class="page-item"><a (click)="anterior()" class=" page-link">«</a></li>
-        <li *ngFor="let p of aPaginas; let i = index" class="page-item"><a (click)="goToPage(i+1)" class="page-link">{{i+1}}</a></li>
+        <li *ngFor="let p of aPaginas; let i = index" class="page-item" [ngClass]="{'active': selectedPage == i}"><a (click)="goToPage(i+1)" class="page-link">{{i+1}}</a></li>
         <li *ngIf="page < totalPages" class="page-item"><a (click)="siguiente()" class="page-link">»</a></li>
     </ul>
 </nav>

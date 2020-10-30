@@ -111,6 +111,11 @@ body {
     /*    border: 0;*/
 }
 
+.page-item.active .page-link {
+    background-color: #9a9c9a;
+    border-color: #202220;
+}
+
 
 /* input */
 

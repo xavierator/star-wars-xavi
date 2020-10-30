@@ -12,12 +12,14 @@ export class PaginationComponent implements OnInit {
   @Output() paginaEmitter: EventEmitter<number> = new EventEmitter();
 
   aPaginas: number[] = [];
+  selectedPage: number;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedPage = 0;
     this.aPaginas = [];
-    for ( let i = 1; i <= this.totalPages; i++) { this.aPaginas.push(i); }
+    for ( let i = 1; i <= this.totalPages; i++) { this.aPaginas.push(i); } // cargar numeraciones de páginas.
   }
 
   siguiente() {
@@ -36,6 +38,7 @@ export class PaginationComponent implements OnInit {
   }
 
   pasarPagina() {
+    this.selectedPage = this.page - 1;
     this.paginaEmitter.emit(this.page);
   }  
 
