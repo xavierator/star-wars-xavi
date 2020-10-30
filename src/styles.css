@@ -102,3 +102,19 @@ body {
 .navbar .navbar-nav>.open>a:focus {
     background-color: #FFFFFF;
 }
+
+
+/* Paginació */
+
+.pagination .page-item .page-link {
+    color: #212529;
+    /*    border: 0;*/
+}
+
+
+/* input */
+
+.form-control:focus {
+    border-color: #202220;
+    box-shadow: 0 0 0 0.2rem rgba(82, 87, 83, 0.25);
+}
