@@ -22,10 +22,10 @@ export class BuscadorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( params => {
       this.searchText = params['text'];
+console.log('buscando ... ' + params['text']);
+      this.doBuscar( this.searchText );
 
-    })
-console.log('buscando ... ' + this.searchText);
-    this.doBuscar( this.searchText );
+    });
 
   }
 
