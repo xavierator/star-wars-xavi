@@ -14,34 +14,20 @@ export class StarShipsComponent implements OnInit {
   public page: number = 1;
   public totalPages: number;
   public numStarShips: number;
-  private numResults: number = 4;
+  public numResults: number;
+
+  DEFAULT_RESULTS: number = 4;
   
   constructor( private _starshipsService: StarShipsService,
                private StarshipRouter: Router,
                public auth: AuthService ) {
-
-//    this.doListar();
+    this.numResults = this.DEFAULT_RESULTS;
     this.getStarShipsByPage(this.page);
 
-    // Funciona OK sense gestió de caché
-/*    this._starshipsService.GetStarShips('').subscribe( (data: any) => {
-        console.log('resultats star-ships: ', data.results);
-      this.starships = data.results;
-
-    });*/
-
-   }
-
-
-  ngOnInit() {
   }
 
 
-  // Lanzar listado.
-  async doListar() {
-//    this.starships = await this._starshipsService.listarStarShips();
-//    this.starships = await this._starshipsService.buscarStarShips('');
-
+  ngOnInit() {
   }
 
 
@@ -72,17 +58,28 @@ export class StarShipsComponent implements OnInit {
   // Comprobar si la URL de la imagen de la nave solicitada existe.
   ImageExists( sh: any ): boolean {
     return this._starshipsService.ImageExists( sh );
+
   }
 
   // Retornar la URL de la imagen de la nave solicitada.
   getImageURL( sh: any ) {
     return this._starshipsService.GetStarShipImageURL( sh );
+
   }
 
-  // Mostrar ficha de la nave solicitada
+  // Mostrar ficha de la nave solicitada.
   showStarship( sh: any ) {
 //console.log('Show Starship: ' + sh.name);
     this.StarshipRouter.navigate( ['/starship', sh] );
+
   }
+
+  // Cambiar los items por página.
+  changeItems(items: number){
+    this.numResults = items;
+    this.getStarShipsByPage( 1 );
+
+  }
+
 
 }

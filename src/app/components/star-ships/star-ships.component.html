@@ -2,7 +2,7 @@
 <hr>
 
 <div *ngIf="auth.loggedIn">
-    <app-pagination (paginaEmitter)="goToPage($event)" [page]="page" [totalPages]="totalPages" [numStarShips]="numStarShips"></app-pagination>
+    <app-pagination (paginaEmitter)="goToPage($event)" (itemsEmitter)="changeItems($event)" [page]="page" [totalPages]="totalPages" [numStarShips]="numStarShips" [numResults]="numResults"></app-pagination>
 </div>
 
 <div *ngIf="auth.loggedIn" class="card-columns">
