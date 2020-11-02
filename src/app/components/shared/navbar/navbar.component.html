@@ -46,22 +46,23 @@
             </form>
 
             <span class="navbar-text">
-<!--                <button *ngIf="!auth.loggedIn" (click)="auth.login()" class="btn btn-outline-success">
-                    Iniciar sesión
-                </button>
-                <button *ngIf="auth.loggedIn" (click)="auth.logout()" class="btn btn-outline-danger">
-                    Cerrar sesión
-                </button> -->
-
                 <ul class="navbar-nav mr-auto">
-                    <li *ngIf="!auth.loggedIn" class="nav-item" routerLinkActive="active">
+<!--                    <li *ngIf="!auth.loggedIn" class="nav-item" routerLinkActive="active">
                         <a class="nav-link" (click)="auth.login()">Iniciar sesión</a>
                     </li>
                     <li *ngIf="auth.loggedIn" class="nav-item" routerLinkActive="active">
                         <a class="nav-link" (click)="auth.logout()">Cerrar sesión</a>
-                    </li>
+                    </li>-->
                 </ul>                        
-            </span>
+                <ul class="navbar-nav-log mr-auto">
+                    <li *ngIf="!auth.loggedIn" class="nav-item" routerLinkActive="active">
+                        <a class="nav-link" (click)="auth.login()">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item" *ngIf="auth.loggedIn" routerLinkActive="active">
+                        <a class="nav-link" (click)="auth.logout()">Cerrar sesión</a>
+                    </li>
+                </ul>
+        </span>
 
         </div>
 

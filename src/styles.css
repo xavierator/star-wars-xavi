@@ -12,6 +12,10 @@ body {
     width: 80px;
 }
 
+li {
+    cursor: pointer;
+}
+
 
 /* Animacions */
 
@@ -101,6 +105,21 @@ body {
 .navbar .navbar-nav>.open>a:hover,
 .navbar .navbar-nav>.open>a:focus {
     background-color: #FFFFFF;
+}
+
+.navbar-nav-log {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.mr-auto {
+    margin-right: auto!important;
 }
 
 
