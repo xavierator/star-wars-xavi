@@ -10,28 +10,36 @@
 
     </div>
 
-    <div class="col-md-8">
-        <h3>{{ ship.name }} (clase {{ ship.starship_class }})</h3>
+    <!--    <div class="col-md-8">-->
+    <div class="col-md-4">
+        <h3>{{ ship.name }}</h3>
         <hr>
         <p>{{ ship.manufacturer }}</p>
+        <p>Clase {{ ship.starship_class }}</p>
         <p *ngIf="ship.cost_in_credits!='unknown'" class="card-text">{{ ship.cost_in_credits | currency:'CRE ':'symbol-narrow':'.0-0' }}</p>
         <p *ngIf="ship.cost_in_credits=='unknown'" class="card-text">Precio no disponible</p>
         <p><b>{{ ship.crew }}</b> tripulante/s - <b>{{ ship.passengers }}</b> pasajero/s</p>
         <p>Máxima Velocidad Atmosférica <b>{{ ship.max_atmosphering_speed }}</b> </p>
         <p>Capacidad de carga <b>{{ ship.cargo_capacity }}</b></p>
-        <div>
+        <!--        <div>
             <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" src="assets/img/empire.png" alt="Empire logo">
             <img *ngIf="imgRebelManufacturer!=''" class="img-logo" src="assets/img/rebel.png" alt="Rebel logo">
 
             <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" [src]="imgEmpireManufacturer" alt="Empire Manufacturer logo">
             <img *ngIf="imgRebelManufacturer!=''" class="img-logo" [src]="imgRebelManufacturer" alt="Rebel Manufacturer logo">
 
-        </div>
-
-        <!--        <div>
-            <img *ngIf="bEmpireShip" class="img-logo" src="assets/img/empire.png" alt="Empire">
-            <img *ngIf="!bEmpireShip" class="img-logo" src="assets/img/rebel.png" alt="Rebel">
-        </div>-->
+        </div> -->
 
     </div>
+
+    <div class="col-md-4">
+        <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" src="assets/img/empire.png" alt="Empire logo">
+        <img *ngIf="imgRebelManufacturer!=''" class="img-logo" src="assets/img/rebel.png" alt="Rebel logo">
+        <br/>
+        <br/>
+        <img *ngIf="imgEmpireManufacturer!=''" class="img-logo" [src]="imgEmpireManufacturer" alt="Empire Manufacturer logo">
+        <img *ngIf="imgRebelManufacturer!=''" class="img-logo" [src]="imgRebelManufacturer" alt="Rebel Manufacturer logo">
+
+    </div>
+
 </div>
